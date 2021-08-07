@@ -15,11 +15,13 @@ Title_txt = "#777778"
 
 #--extra-colors 👇
 
-Share_button = "#04F0FF"
+Share_but = "#04F0FF"
 Card = "#C4C4C4"
 
 
 root = Tk()
+root.title("CG-HUB")
+root.iconbitmap("images/logo.ico")
 root.geometry("1167x667")
 root.config(bg=Bg_1)
 root.resizable(0,0)
@@ -52,12 +54,12 @@ def switch():
         # create animated Navbar closing:
         for x in range(301):
             navRoot.place(x=-x, y=0)
-            topFrame.update()
+            navRoot.update()
 
         # resetting widget colors:
         brandLabel.config(bg="gray17", fg="#FA0583")
-        homeLabel.config(bg=color["orange"])
-        topFrame.config(bg=color["orange"])
+        share_button.config(bg=color["orange"])
+        
         root.config(bg="gray17")
 
         # turning button OFF:
@@ -65,27 +67,24 @@ def switch():
     else:
         # make root dim:
         brandLabel.config(bg=color["nero"], fg="#5F5A33")
-        homeLabel.config(bg=color["nero"])
-        topFrame.config(bg=color["nero"])
+        share_button.config(bg=color["nero"])
+        
         root.config(bg=color["nero"])
 
         # created animated Navbar opening:
         for x in range(-300, 0):
             navRoot.place(x=x, y=0)
-            topFrame.update()
+            navRoot.update()
 
         # turing button ON:
         btnState = True
 
 
-# top Navigation bar:
-topFrame = Frame(root, bg=color["orange"])
-topFrame.pack(side="top", fill=X)
 
 # Header label text:
-homeLabel = Label(topFrame, text="Share", font="Bahnschrift 15",
-                     bg=color["orange"], fg="gray17", height=2, padx=20)
-homeLabel.pack(side="right")
+share_button = Button(root, text="Share", font="Bahnschrift 15",
+                     bg=color["orange"], fg="gray17", height=2, padx=20,bd=0)
+share_button.place(x=1053, y=10)
 
 # Main label text:
 brandLabel = Label(root, text="Cherry\nCodes🍒",
@@ -93,9 +92,9 @@ brandLabel = Label(root, text="Cherry\nCodes🍒",
 brandLabel.place(x=100, y=250)
 
 # Navbar button:
-navbarBtn = Button(topFrame, text="Nav",
-                      bg=color["orange"], activebackground=color["orange"], bd=0, padx=20, command=switch)
-navbarBtn.place(x=100, y=10)
+pagetitle = Label(root, text="Home", font=("arial bold",20),
+                      bg=Bg_1, fg="white", bd=0, padx=20)
+pagetitle.place(x=60, y=10)
 
 # setting Navbar frame:
 navRoot = Frame(root, bg="red", height=1000, width=300)
@@ -104,10 +103,15 @@ Label(navRoot, font="Bahnschrift 15",
          bg=color["orange"], fg="black", height=2, width=300, padx=20).place(x=0, y=0)
 
 
-navStatic = Frame(root, bg="blue", height=1000, width=60)
+navStatic = Frame(root, bg="blue", height=1000, width=70)
 navStatic.place(x=0, y=0)
-Label(navStatic, font="Bahnschrift 15",
-         bg=color["orange"], fg="black", height=2, width=60, padx=20).place(x=0, y=0)
+logo_label = Label(navStatic, font="Bahnschrift 15",
+         bg=color["orange"], fg="black", height=3, width=60, padx=20).place(x=0, y=0)
+
+
+# logo button
+
+logo_button = Button(logo_label,text="Nav",fg="black",command=switch,bd=0).place(x=17,y=10)
 
 
 # set y-coordinate of Navbar widgets:
@@ -117,7 +121,7 @@ options = ["Profile", "Settings", "Help", "About", "Feedback"]
 # Navbar Option Buttons:
 for i in range(5):
     Button(navRoot, text=options[i], font="BahnschriftLight 15", bg="gray17", fg=color["orange"],
-              activebackground="gray17", activeforeground="green", bd=0).place(x=70, y=y)
+              activebackground="gray17", activeforeground="green", bd=0).place(x=75, y=y)
     y += 40
 
 # Navbar Close Button:
