@@ -50,7 +50,7 @@ def switch():
     global btnState
     if btnState is True:
         # create animated Navbar closing:
-        for x in range(311):
+        for x in range(301):
             navRoot.place(x=-x, y=0)
             topFrame.update()
 
@@ -70,7 +70,7 @@ def switch():
         root.config(bg=color["nero"])
 
         # created animated Navbar opening:
-        for x in range(10, 311):
+        for x in range(-300, 0):
             navRoot.place(x=x, y=0)
             topFrame.update()
 
@@ -98,10 +98,17 @@ navbarBtn = Button(topFrame, text="Nav",
 navbarBtn.place(x=100, y=10)
 
 # setting Navbar frame:
-navRoot = Frame(root, bg="gray17", height=1000, width=300)
-navRoot.place(x=10, y=0)
+navRoot = Frame(root, bg="red", height=1000, width=300)
+navRoot.place(x=-300, y=0)
 Label(navRoot, font="Bahnschrift 15",
          bg=color["orange"], fg="black", height=2, width=300, padx=20).place(x=0, y=0)
+
+
+navStatic = Frame(root, bg="blue", height=1000, width=60)
+navStatic.place(x=0, y=0)
+Label(navStatic, font="Bahnschrift 15",
+         bg=color["orange"], fg="black", height=2, width=60, padx=20).place(x=0, y=0)
+
 
 # set y-coordinate of Navbar widgets:
 y = 80
@@ -110,7 +117,7 @@ options = ["Profile", "Settings", "Help", "About", "Feedback"]
 # Navbar Option Buttons:
 for i in range(5):
     Button(navRoot, text=options[i], font="BahnschriftLight 15", bg="gray17", fg=color["orange"],
-              activebackground="gray17", activeforeground="green", bd=0).place(x=25, y=y)
+              activebackground="gray17", activeforeground="green", bd=0).place(x=70, y=y)
     y += 40
 
 # Navbar Close Button:
