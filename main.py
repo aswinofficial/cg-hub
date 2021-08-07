@@ -5,7 +5,7 @@ from tkinter import *
 Bg_1 = "#34343B"
 Bg_2 = "#23232E"
 Bg_3 = "#141418"
-
+Bg_4 = "white"
 
 #--text-colors 👇
 
