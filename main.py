@@ -40,6 +40,7 @@ camera = PhotoImage(file="images/camera.png")
 msg = PhotoImage(file="images/msg.png")
 shop = PhotoImage(file="images/shop.png")
 share = PhotoImage(file="images/share.png")
+neo = PhotoImage(file="images/neo.png")
 
 # setting switch state:
 btnState = False
@@ -89,6 +90,10 @@ def switch():
         btnState = True
 
 
+# --testing neomorphism
+Button(root, image=neo, bg=Bg_1, activebackground=Bg_1, bd=0).pack()
+
+
 # Title label
 pagetitle = Label(root, text="Home", font=("arial bold", 20),
                   bg=Bg_1, fg="white", bd=0, padx=20)
@@ -96,7 +101,7 @@ pagetitle.place(x=60, y=24)
 
 
 # Share label
-share_button = Button(root, image=share,
+share_button = Button(root, image=share, activebackground=Bg_1,
                       bg=Bg_1, fg="gray17", padx=20, bd=0)
 share_button.place(x=1053, y=17)
 
